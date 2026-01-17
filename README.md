@@ -10,4 +10,4 @@ FairFix is a full-stack MERN application designed to reduce disputes during mino
   *Geo-based mechanic discovery
   *Visual damage cost estimation(rule-based)
   *Digital settlement receipt generation
-  *Built with real-world Indian traffic scenarios in mind
+  *Built with real-world Indian traffic scenarios in mind 
