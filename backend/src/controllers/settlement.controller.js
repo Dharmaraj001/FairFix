@@ -3,7 +3,9 @@ import Incident from "../models/Incident.js";
 
 export const createSettlement = async (req, res) => {
   try {
-    const { incidentId, driver, mechanic, agreedAmount, location } = req.body;
+    const { incidentId, mechanic, agreedAmount, location } = req.body;
+
+    const driver = req.user._id;
 
     const incident = await Incident.findById(incidentId);
     if (!incident) {

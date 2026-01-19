@@ -5,7 +5,7 @@ export const createIncident = async (req, res) => {
     const { driver, location, vehicleType, images } = req.body;
 
     const incident = await Incident.create({
-      driver, 
+      driver: req.user._id, 
       location,
       vehicleType,
       images

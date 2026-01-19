@@ -3,7 +3,8 @@ import { estimateDamageCost } from "../services/damageEstimator.service.js";
 
 export const assessDamage = async (req, res) => {
   try {
-    const { incidentId, vehicleType, damageType, affectedArea } = req.body;
+    const { incidentId, damageType, affectedArea } = req.body;
+    const vehicleType = req.body.vehicleType; // OK for now
 
     const estimation = estimateDamageCost({
       vehicleType,
