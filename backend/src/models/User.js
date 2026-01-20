@@ -21,21 +21,25 @@ const userSchema = new mongoose.Schema(
       enum: ["DRIVER", "MECHANIC", "ADMIN"],
       default: "DRIVER"
     },
-    location: {
+   location: {
   type: {
     type: String,
-    enum: ["Point"],
-    default: "Point"
+    enum: ["Point"]
   },
   coordinates: {
-    type: [Number] // [longitude, latitude]
+    type: [Number]
   }
 }
+
 
   },
   { timestamps: true }
 );
 
-userSchema.index({ location: "2dsphere" });
+userSchema.index(
+  { location: "2dsphere" },
+  { partialFilterExpression: { location: { $exists: true } } }
+);
+
 const User = mongoose.model("User", userSchema);
 export default User;
