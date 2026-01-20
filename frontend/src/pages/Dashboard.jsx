@@ -1,11 +1,16 @@
-import React from 'react'
+import { Link } from "react-router-dom";
 
-const Dashboard = () => {
+export default function Dashboard() {
   return (
-    <div>
-      <h1>hello</h1>
-    </div>
-  )
-}
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
 
-export default Dashboard
+      <Link
+        to="/incident/new"
+        className="inline-block bg-green-600 text-white px-4 py-2 rounded"
+      >
+        Create Incident
+      </Link>
+    </div>
+  );
+}
