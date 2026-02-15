@@ -12,7 +12,7 @@ export const createIncident = async (req, res) => {
     }
 
     const incident = await Incident.create({
-      driver: req.user._id,   // ✅ comes ONLY from token
+      driver: req.user._id,   // ✅ comes ONLY from token 
       location,
       vehicleType,
       images
@@ -29,3 +29,22 @@ export const createIncident = async (req, res) => {
     });
   }
 };
+
+export const getMyIncidents = async (req, res) => {
+  try {
+    const incidents = await Incident.find({
+      driver: req.user._id
+    }).sort({ createdAt: -1 });
+
+    res.status(200).json({
+      success: true,
+      incidents
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+

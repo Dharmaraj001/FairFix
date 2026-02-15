@@ -1,5 +1,5 @@
 import express from "express";
-import { createIncident } from "../controllers/incident.controller.js";
+import { createIncident, getMyIncidents } from "../controllers/incident.controller.js";
 import { protect } from "../middlewares/auth.middleware.js";
 import { allowRoles } from "../middlewares/role.middleware.js";
 
@@ -10,6 +10,13 @@ router.post(
   protect,
   allowRoles("DRIVER"),
   createIncident
+);
+
+router.get(
+  "/mine",
+  protect,
+  allowRoles("DRIVER"),
+  getMyIncidents
 );
 
 export default router;
