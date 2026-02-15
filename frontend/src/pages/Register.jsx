@@ -18,11 +18,11 @@ export default function Register() {
         password,
         role
       });
-      navigate("/");
+      navigate("/login");
     } catch (err) {
-      console.log(err.response)
-      alert(err.response?.data?.message || "Registration failed");
-    }
+  console.log("FULL ERROR:", err.response);
+  alert(err.response?.data?.message || "Registration failed");
+}
   };
 
   return (

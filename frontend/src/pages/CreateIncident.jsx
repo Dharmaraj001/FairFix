@@ -7,33 +7,34 @@ export default function CreateIncident() {
   const [images, setImages] = useState([]);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!images || images.length === 0) {
-  alert("Please upload at least one image");
-  return;
-}
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
+  // ✅ FRONTEND GUARD (ADD THIS)
+  if (!images || images.length === 0) {
+    alert("Please upload at least one image");
+    return;
+  }
 
-    const imageUrls = Array.from(images).map(
-  (file) => file.name
-);
+  const imageUrls = Array.from(images).map(
+    (file) => file.name
+  );
 
+  try {
+    await api.post("/incidents", {
+      vehicleType,
+      images: imageUrls,
+      location: {
+        type: "Point",
+        coordinates: [77.5946, 12.9716]
+      }
+    });
+    navigate("/dashboard");
+  } catch (err) {
+    alert(err.response?.data?.message || "Incident creation failed");
+  }
+};
 
-    try {
-      await api.post("/incidents", {
-        vehicleType,
-        images: imageUrls,
-        location: {
-          type: "Point",
-          coordinates: [77.5946, 12.9716] // static for MVP
-        }
-      });
-      navigate("/dashboard");
-    } catch (err) {
-      alert(err.response?.data?.message || "Incident creation failed");
-    }
-  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
