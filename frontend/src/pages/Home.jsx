@@ -258,7 +258,7 @@ const App = () => {
           <div className="max-w-4xl mx-auto px-6">
             <div className="bg-blue-600 rounded-[3rem] p-12 md:p-20 text-white shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 p-8 opacity-10">
-                <CheckCircle2 className="w-48 h-48" />
+                <CheckCircle2 className="w-48 h-48"/>
               </div>
               <h2 className="text-3xl md:text-5xl font-bold mb-6 relative z-10">Ready to resolve it fairly?</h2>
               <p className="text-xl text-blue-100 mb-10 relative z-10">Join drivers everywhere settling minor incidents without the insurance headache.</p>
@@ -303,7 +303,7 @@ const App = () => {
             </div>
           </div>
           <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-400">
-            <p>© 2024 FairFix Technologies Inc. All rights reserved.</p>
+            <p>© 2026 FairFix Inc. All rights reserved.</p>
             <div className="flex gap-6">
               <button className="hover:text-slate-600">Twitter</button>
               <button className="hover:text-slate-600">LinkedIn</button>
