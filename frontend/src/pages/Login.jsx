@@ -12,7 +12,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await api.post("/auth/login", { phone, password });
+      const res = await api.post("auth/login", { phone, password });
       login(res.data.token);
       navigate("/dashboard");
     } catch (err) {
